@@ -1,4 +1,31 @@
 <script setup>
+import { MenuIcon } from '@lucide/vue';
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const isOpen = ref(false)
+const activeLink = ref(window.location.hash || '#accueil')
+
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value
+}
+
+const setActive = (link) => {
+  activeLink.value = link
+  isOpen.value = false
+}
+
+const handleHashChange = () => {
+  activeLink.value = window.location.hash || '#accueil'
+}
+
+onMounted(() => {
+  window.addEventListener('hashchange', handleHashChange)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('hashchange', handleHashChange)
+})
+
 const formations = [
   {
     year: "2025 - 2026",
@@ -8,7 +35,7 @@ const formations = [
   {
     year: "2022 - 2023",
     name: "Nir'Info",
-    description: "Formation spécialisée en PHP et Javascript, axée sur le développement d'applications web dynamiques. Maîtrise de la programmation orientée objet (POO) pour structurer le code de manière modulaire et maintenable. Utilisation d'AJAX pour la communication asychrone entre la frontend et le backend."
+    description: "Formation spécialisée en PHP et Javascript, axée sur le développement d'applications web dynamiques. Maîtrise de la programmation orientée objet (POO) pour structurer le code de manière modulaire et maintenable."
   },
 ];
 const projects = [
@@ -18,9 +45,9 @@ const projects = [
     description:
       "Application moderne inspirée de Spotify avec lecteur audio, playlists et design responsive.",
     techs: [
-      "/src/assets/images/competences/vuejs.PNG", 
-      "/src/assets/images/competences/laravel.PNG", 
-      "/src/assets/images/competences/tailwind.PNG",
+      "/src/assets/images/vuejs.PNG", 
+      "/src/assets/images/laravel.PNG", 
+      "/src/assets/images/tailwind.PNG",
     ],
   },
   {
@@ -29,8 +56,8 @@ const projects = [
     description:
       "Application de music d'un Artiste avec lecteur audio, téléchargement d'un audio pour pratiquer mes compétence en javascript.",
     techs: [
-      "/src/assets/images/competences/js.PNG", 
-      "/src/assets/images/competences/css.PNG", 
+      "/src/assets/images/js.PNG", 
+      "/src/assets/images/css.PNG", 
     ],
   },
   {
@@ -39,8 +66,8 @@ const projects = [
     description:
       "Ce site permet aux clients de consulter les services du garages, d'acheter des pièces automobiles, de demander une réparation ou un dépannage, et aussi de réserver un lavage de véhicule en ligne.",
     techs: [
-      "/src/assets/images/competences/sass.PNG", 
-      "/src/assets/images/competences/php.PNG", 
+      "/src/assets/images/sass.PNG", 
+      "/src/assets/images/php.PNG", 
     ],
   },
   {
@@ -49,10 +76,10 @@ const projects = [
     description:
       "Système d’examens de métier et de langue avec QCM, comprehension de texte, disseration, mot croisé et mot relié. Les professeurs on la possibilité de corriger les mettre des notes, de mettre des critiques, de barré les mot incorrecte et aussi les examens ont des minuteries.",
     techs: [
-      "/src/assets/images/competences/mysql.PNG", 
-      "/src/assets/images/competences/laravel.PNG", 
-      "/src/assets/images/competences/tailwind.PNG",
-      "/src/assets/images/competences/DaisyUI.PNG",
+      "/src/assets/images/mysql.PNG", 
+      "/src/assets/images/laravel.PNG", 
+      "/src/assets/images/tailwind.PNG",
+      "/src/assets/images/DaisyUI.PNG",
     ],
   },
   {
@@ -61,8 +88,8 @@ const projects = [
     description:
       "Application de gestion de tâches avec localStorage et interface responsive.",
     techs: [
-      "/src/assets/images/competences/vuejs.PNG",  
-      "/src/assets/images/competences/tailwind.PNG",
+      "/src/assets/images/vuejs.PNG",  
+      "/src/assets/images/tailwind.PNG",
     ],
   },
   {
@@ -71,45 +98,45 @@ const projects = [
     description:
       "Application de reseaux sociaux avec des envoye des messages, publication des post, commenter ou de likez des post, voir les profil des autres utilisateur, mettre des story et ajouter ou supprimer une invitation d'amis.",
     techs: [
-      "/src/assets/images/competences/sass.PNG", 
-      "/src/assets/images/competences/php.PNG", 
+      "/src/assets/images/sass.PNG", 
+      "/src/assets/images/php.PNG", 
     ],
   },
 ];
 
 const langages = [
   {
-    icon: "/src/assets/images/competences/html.PNG",
+    icon: "/src/assets/images/html.png",
     title: "HTML",
     niveau: "w-[95%]",
     color: "bg-red-500",
   },
   {
-    icon: "/src/assets/images/competences/css.PNG",
+    icon: "/src/assets/images/css.PNG",
     title: "CSS",
     niveau: "w-[80%]",
     color: "bg-blue-800",
   },
   {
-    icon: "/src/assets/images/competences/js.PNG",
+    icon: "/src/assets/images/js.PNG",
     title: "Javascript",
     niveau: "w-[69%]",
     color: "bg-yellow-500",
   },
   {
-    icon: "/src/assets/images/competences/php.PNG",
+    icon: "/src/assets/images/php.PNG",
     title: "PHP",
     niveau: "w-[85%]",
     color: "bg-blue-400",
   },
   {
-    icon: "/src/assets/images/competences/sass.PNG",
+    icon: "/src/assets/images/sass.PNG",
     title: "SASS",
     niveau: "w-[60%]",
     color: "bg-pink-400",
   },
   {
-    icon: "/src/assets/images/competences/sql.PNG",
+    icon: "/src/assets/images/sql.PNG",
     title: "sql",
     niveau: "w-[65%]",
     color: "bg-blue-800",
@@ -117,43 +144,43 @@ const langages = [
 ];
 const frameworks = [
   {
-    icon: "/src/assets/images/competences/symfony.PNG",
+    icon: "/src/assets/images/symfony.PNG",
     title: "Symfony",
     niveau: "w-[65%]",
     color: "bg-black",
   },
   {
-    icon: "/src/assets/images/competences/laravel.PNG",
+    icon: "/src/assets/images/laravel.PNG",
     title: "Laravel",
     niveau: "w-[80%]",
     color: "bg-red-600",
   },
   {
-    icon: "/src/assets/images/competences/vuejs.PNG",
+    icon: "/src/assets/images/vuejs.PNG",
     title: "VueJS",
     niveau: "w-[80%]",
     color: "bg-green-400",
   },
   {
-    icon: "/src/assets/images/competences/tailwind.PNG",
+    icon: "/src/assets/images/tailwind.PNG",
     title: "TailwindCSS",
     niveau: "w-[85%]",
     color: "bg-cyan-500",
   },
   {
-    icon: "/src/assets/images/competences/pinia.PNG",
+    icon: "/src/assets/images/pinia.PNG",
     title: "Pinia",
     niveau: "w-[65%]",
     color: "bg-yellow-200",
   },
   {
-    icon: "/src/assets/images/competences/bootstrap.PNG",
+    icon: "/src/assets/images/bootstrap.PNG",
     title: "Bootstrap",
     niveau: "w-[85%]",
     color: "bg-violet-800",
   },
   {
-    icon: "/src/assets/images/competences/daisyui.PNG",
+    icon: "/src/assets/images/daisyui.PNG",
     title: "DaisyUI",
     niveau: "w-[85%]",
     color: "bg-yellow-500",
@@ -161,13 +188,13 @@ const frameworks = [
 ];
 const bd = [
   {
-    icon: "/src/assets/images/competences/mysql.PNG",
+    icon: "/src/assets/images/mysql.PNG",
     title: "MySQL",
     niveau: "w-[85%]",
     color: "bg-orange-400",
   },
   {
-    icon: "/src/assets/images/competences/postgresql.PNG",
+    icon: "/src/assets/images/postgresql.PNG",
     title: "PostgreSQL",
     niveau: "w-[55%]",
     color: "bg-blue-900",
@@ -175,19 +202,19 @@ const bd = [
 ];
 const outils = [
   {
-    icon: "/src/assets/images/competences/git.PNG",
+    icon: "/src/assets/images/git.PNG",
     title: "GIT",
     niveau: "w-[85%]",
     color: "bg-green-100",
   },
   {
-    icon: "/src/assets/images/competences/github.PNG",
+    icon: "/src/assets/images/github.PNG",
     title: "GitHub",
     niveau: "w-[80%]",
     color: "bg-black",
   },
   {
-    icon: "/src/assets/images/competences/vscode.PNG",
+    icon: "/src/assets/images/vscode.PNG",
     title: "VSCode",
     niveau: "w-[95%]",
     color: "bg-blue-500",
@@ -195,7 +222,7 @@ const outils = [
 ];
 const design = [
   {
-    icon: "/src/assets/images/competences/photoshop.PNG",
+    icon: "/src/assets/images/photoshop.PNG",
     title: "Photoshop",
     niveau: "w-[50%]",
     color: "bg-blue-500",
@@ -203,13 +230,13 @@ const design = [
 ];
 const bureautique = [
   {
-    icon: "/src/assets/images/competences/word.PNG",
+    icon: "/src/assets/images/word.PNG",
     title: "Word",
     niveau: "w-[80%]",
     color: "bg-blue-500",
   },
   {
-    icon: "/src/assets/images/competences/excel.PNG",
+    icon: "/src/assets/images/excel.PNG",
     title: "Excel",
     niveau: "w-[60%]",
     color: "bg-green-500",
@@ -219,34 +246,186 @@ const bureautique = [
 <template>
   <div class="bg-[#05070e] text-white min-h-screen relative">
     <!-- HEADER -->
-    <header class="border-b border-white/10 bg-[#111827]/90 backdrop-blur sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-red-500">
-          <a href="#accueil" class="hover:text-red-500 transition">
-            <ul class="flex">
-              <li class="folio">P</li>
-              <li class="folio">O</li>
-              <li class="folio">R</li>
-              <li class="folio">T</li>
-              <li class="folio">F</li>
-              <li class="folio">O</li>
-              <li class="folio">L</li>
-              <li class="folio">I</li>
-              <li class="folio">O</li>
+   <header
+    class="border-b border-white/10 bg-[#111827]/90 backdrop-blur sticky top-0 z-50"
+  >
+    <div
+      class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+    >
+      <!-- LOGO -->
+      <h1 class="text-2xl font-bold text-red-500">
+        <a href="#accueil">
+          <ul class="flex">
+            <li class="folio">P</li>
+            <li class="folio">O</li>
+            <li class="folio">R</li>
+            <li class="folio">T</li>
+            <li class="folio">F</li>
+            <li class="folio">O</li>
+            <li class="folio">L</li>
+            <li class="folio">I</li>
+            <li class="folio">O</li>
           </ul>
-          </a>
-        </h1>
+        </a>
+      </h1>
 
-        <nav class="hidden md:flex gap-6 text-sm">
-          <a href="#accueil" class="hover:text-red-500 transition active">Accueil</a>
-          <a href="#about" class="hover:text-red-500 transition">À propos</a>
-          <a href="#formation" class="hover:text-red-500 transition ">Formations</a>
-          <a href="#skills" class="hover:text-red-500 transition">Compétences</a>
-          <a href="#experience" class="hover:text-red-500 transition">Expérience</a>
-          <a href="#projects" class="hover:text-red-500 transition">Projets</a>
-        </nav>
-      </div>
-    </header>
+      <!-- MENU DESKTOP -->
+      <nav class="hidden md:flex gap-6 text-sm">
+
+        <a
+          href="#accueil"
+          @click="setActive('#accueil')"
+          :class="activeLink === '#accueil'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'"
+          class="transition"
+        >
+          Accueil
+        </a>
+
+        <a
+          href="#about"
+          @click="setActive('#about')"
+          :class="activeLink === '#about'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'"
+          class="transition"
+        >
+          À propos
+        </a>
+
+        <a
+          href="#formation"
+          @click="setActive('#formation')"
+          :class="activeLink === '#formation'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'"
+          class="transition"
+        >
+          Formations
+        </a>
+
+        <a
+          href="#skills"
+          @click="setActive('#skills')"
+          :class="activeLink === '#skills'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'"
+          class="transition"
+        >
+          Compétences
+        </a>
+
+        <a
+          href="#experience"
+          @click="setActive('#experience')"
+          :class="activeLink === '#experience'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'"
+          class="transition"
+        >
+          Expérience
+        </a>
+
+        <a
+          href="#projects"
+          @click="setActive('#projects')"
+          :class="activeLink === '#projects'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'"
+          class="transition"
+        >
+          Projets
+        </a>
+
+      </nav>
+
+      <!-- BOUTON MOBILE -->
+      <button
+        @click="toggleMenu"
+        class="bg-red-500 text-white md:hidden p-2 rounded-md"
+      >
+        ☰
+      </button>
+    </div>
+     <!-- MENU MOBILE -->
+    <nav
+      v-if="isOpen"
+      class="md:hidden bg-[#111827] border-t border-white/10 px-6 py-4 flex flex-col gap-4 text-sm"
+    >
+      <a
+        href="#accueil"
+        @click="setActive('#accueil')"
+        :class="[
+          activeLink === '#accueil'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'
+        ]"
+      >
+        Accueil
+      </a>
+
+      <a
+        href="#about"
+        @click="setActive('#about')"
+        :class="[
+          activeLink === '#about'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'
+        ]"
+      >
+        À propos
+      </a>
+
+      <a
+        href="#formation"
+        @click="setActive('#formation')"
+        :class="[
+          activeLink === '#formation'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'
+        ]"
+      >
+        Formations
+      </a>
+
+      <a
+        href="#skills"
+        @click="setActive('#skills')"
+        :class="[
+          activeLink === '#skills'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'
+        ]"
+      >
+        Compétences
+      </a>
+
+      <a
+        href="#experience"
+        @click="setActive('#experience')"
+        :class="[
+          activeLink === '#experience'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'
+        ]"
+      >
+        Expérience
+      </a>
+
+      <a
+        href="#projects"
+        @click="setActive('#projects')"
+        :class="[
+          activeLink === '#projects'
+            ? 'text-red-500'
+            : 'text-white hover:text-red-500'
+        ]"
+      >
+        Projets
+      </a>
+    </nav>
+  </header>
 
     <!-- ACCUEIL -->
     <section id="accueil" class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10 items-center">
@@ -311,22 +490,22 @@ const bureautique = [
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="bg-white/5 p-6 bloc1 w-[250px]">
+          <div class="bg-white/5 p-6 bloc1 w-[100%]">
             <h3 class="text-red-500 text-xl font-bold">Frontend</h3>
             <p class="text-gray-400 mt-2">Vue.js, TailwindCSS, JavaScript</p>
           </div>
 
-          <div class="bg-white/5 p-6 bloc1 w-[250px]">
+          <div class="bg-white/5 p-6 bloc1 w-[100%]">
             <h3 class="text-red-500 text-xl font-bold">Backend</h3>
             <p class="text-gray-400 mt-2">PHP, Laravel, API REST</p>
           </div>
 
-          <div class="bg-white/5 p-6 bloc1 w-[250px]">
+          <div class="bg-white/5 p-6 bloc1 w-[100%]">
             <h3 class="text-red-500 text-xl font-bold">Base de données</h3>
             <p class="text-gray-400 mt-2">MySQL</p>
           </div>
 
-          <div class="bg-white/5 p-6 bloc1 w-[250px]">
+          <div class="bg-white/5 p-6 bloc1 w-[100%]">
             <h3 class="text-red-500 text-xl font-bold">Versioning</h3>
             <p class="text-gray-400 mt-2">Git & GitHub</p>
           </div>
@@ -340,7 +519,7 @@ const bureautique = [
         <h2 class="relative titles w-[max-content] text-4xl font-bold mb-10">Formations</h2>
 
         <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
-          <div v-for="formation in formations" class="p-6  bg-[#05070e]">
+          <div v-for="formation in formations" class="p-6  bg-[#05070e] w-full">
             <strong class="text-red-500 mt-2">{{ formation.year }}</strong>
             <h3 class="text-2xl font-bold">{{ formation.name }}</h3>
             <p class="text-gray-400 mt-3 text-sm">{{ formation.description }}</p>
@@ -353,8 +532,8 @@ const bureautique = [
     <section id="skills" class="max-w-7xl mx-auto px-6 py-20">
       <h2 class="text-4xl font-bold mb-10 relative titles w-[max-content]">Compétences</h2>
       <h3 class=" text-2xl font-bold my-4">Langages</h3>
-      <div class="flex gap-5 items-center flex-wrap">
-        <div v-for="skill in langages" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[200px] transition hover:translate-y-2">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+        <div v-for="skill in langages" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[100%] transition hover:translate-y-2">
           <div class="flex justify-center items-center w-10 h-10  text-xl">
             <img :src="`${skill.icon}`" alt="HTML" class="w-8 object-fit-cover">
           </div>
@@ -366,8 +545,8 @@ const bureautique = [
         </div>
       </div>
       <h3 class="text-2xl font-bold my-4">Frameworks & Librarie</h3>
-      <div class="flex gap-5 items-center flex-wrap">
-        <div v-for="skill in frameworks" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[200px] transition hover:translate-y-2">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+        <div v-for="skill in frameworks" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[100%] transition hover:translate-y-2">
           <div class="flex justify-center items-center w-10 h-10  text-xl">
             <img :src="`${skill.icon}`" alt="HTML" class="w-8  object-fit-cover">
           </div>
@@ -379,8 +558,8 @@ const bureautique = [
         </div>
       </div>
       <h3 class="text-2xl font-bold my-4">Base de donnée</h3>
-      <div class="flex gap-5 items-center flex-wrap">
-        <div v-for="skill in bd" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[200px] transition hover:translate-y-2">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+        <div v-for="skill in bd" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[100%] transition hover:translate-y-2">
           <div class="flex justify-center items-center w-10 h-10  text-xl">
             <img :src="`${skill.icon}`" alt="HTML" class="w-8  object-fit-cover">
           </div>
@@ -392,8 +571,8 @@ const bureautique = [
         </div>
       </div>
       <h3 class="text-2xl font-bold my-4">Outils</h3>
-      <div class="flex gap-5 items-center flex-wrap">
-        <div v-for="skill in outils" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[200px] transition hover:translate-y-2">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+        <div v-for="skill in outils" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[100%] transition hover:translate-y-2">
           <div class="flex justify-center items-center w-10 h-10 text-xl">
             <img :src="`${skill.icon}`" alt="HTML" class="w-8  object-fit-cover">
           </div>
@@ -405,8 +584,8 @@ const bureautique = [
         </div>
       </div>
       <h3 class="text-2xl font-bold my-4">Design</h3>
-      <div class="flex gap-5 items-center flex-wrap">
-        <div v-for="skill in design" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[200px] transition hover:translate-y-2">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+        <div v-for="skill in design" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[100%] transition hover:translate-y-2">
           <div class="flex justify-center items-center w-10 h-10 text-xl">
             <img :src="`${skill.icon}`" alt="HTML" class="w-8  object-fit-cover">
           </div>
@@ -418,8 +597,8 @@ const bureautique = [
         </div>
       </div>
       <h3 class="text-2xl font-bold my-4">Bureautique</h3>
-        <div class="flex gap-5 items-center flex-wrap">
-          <div v-for="skill in bureautique" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[200px] transition hover:translate-y-2">
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+          <div v-for="skill in bureautique" class="hover:border-b-1 hover:border-gray-400 flex flex-col flex-wrap gap-3 bg-white/5 bloc2 p-6 items-center w-[100%] transition hover:translate-y-2">
             <div class="flex justify-center items-center w-10 h-10 text-xl">
               <img :src="`${skill.icon}`" alt="HTML" class="w-8  object-fit-cover">
             </div>
@@ -457,11 +636,11 @@ const bureautique = [
     <section id="projects" class="max-w-7xl mx-auto px-6 py-20 ">
       <h2 class="text-4xl font-bold mb-10 relative titles w-[max-content]">Mes projets</h2>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
         <div
           v-for="project in projects"
           :key="project.title"
-          class=" border border-white/10 rounded-2xl bg-[#05070e] overflow-hidden group"
+          class=" border border-white/10 rounded-2xl bg-[#05070e] overflow-hidden group w-full"
         >
           <div class="h-48 bg-gradient-to-br from-red-600 to-blue-700 relative">
             <img :src="`${project.image}`" alt="Capture des projets" class="w-full h-48 object-cover projet-image">
