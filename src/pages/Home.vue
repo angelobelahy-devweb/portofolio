@@ -18,9 +18,9 @@ const projects = [
     description:
       "Application moderne inspirée de Spotify avec lecteur audio, playlists et design responsive.",
     techs: [
-      "/public/images/competences/vuejs.PNG", 
-      "/public/images/competences/laravel.PNG", 
-      "/public/images/competences/tailwind.PNG",
+      "/src/assets/images/competences/vuejs.PNG", 
+      "/src/assets/images/competences/laravel.PNG", 
+      "/src/assets/images/competences/tailwind.PNG",
     ],
   },
   {
@@ -29,8 +29,8 @@ const projects = [
     description:
       "Application de music d'un Artiste avec lecteur audio, téléchargement d'un audio pour pratiquer mes compétence en javascript.",
     techs: [
-      "/public/images/competences/js.PNG", 
-      "/public/images/competences/css.PNG", 
+      "/src/assets/images/competences/js.PNG", 
+      "/src/assets/images/competences/css.PNG", 
     ],
   },
   {
@@ -39,8 +39,8 @@ const projects = [
     description:
       "Ce site permet aux clients de consulter les services du garages, d'acheter des pièces automobiles, de demander une réparation ou un dépannage, et aussi de réserver un lavage de véhicule en ligne.",
     techs: [
-      "/public/images/competences/sass.PNG", 
-      "/public/images/competences/php.PNG", 
+      "/src/assets/images/competences/sass.PNG", 
+      "/src/assets/images/competences/php.PNG", 
     ],
   },
   {
@@ -49,10 +49,10 @@ const projects = [
     description:
       "Système d’examens de métier et de langue avec QCM, comprehension de texte, disseration, mot croisé et mot relié. Les professeurs on la possibilité de corriger les mettre des notes, de mettre des critiques, de barré les mot incorrecte et aussi les examens ont des minuteries.",
     techs: [
-      "/public/images/competences/mysql.PNG", 
-      "/public/images/competences/laravel.PNG", 
-      "/public/images/competences/tailwind.PNG",
-      "/public/images/competences/DaisyUI.PNG",
+      "/src/assets/images/competences/mysql.PNG", 
+      "/src/assets/images/competences/laravel.PNG", 
+      "/src/assets/images/competences/tailwind.PNG",
+      "/src/assets/images/competences/DaisyUI.PNG",
     ],
   },
   {
@@ -61,8 +61,8 @@ const projects = [
     description:
       "Application de gestion de tâches avec localStorage et interface responsive.",
     techs: [
-      "/public/images/competences/vuejs.PNG",  
-      "/public/images/competences/tailwind.PNG",
+      "/src/assets/images/competences/vuejs.PNG",  
+      "/src/assets/images/competences/tailwind.PNG",
     ],
   },
   {
@@ -71,45 +71,45 @@ const projects = [
     description:
       "Application de reseaux sociaux avec des envoye des messages, publication des post, commenter ou de likez des post, voir les profil des autres utilisateur, mettre des story et ajouter ou supprimer une invitation d'amis.",
     techs: [
-      "/public/images/competences/sass.PNG", 
-      "/public/images/competences/php.PNG", 
+      "/src/assets/images/competences/sass.PNG", 
+      "/src/assets/images/competences/php.PNG", 
     ],
   },
 ];
 
 const langages = [
   {
-    icon: "/public/images/competences/html.PNG",
+    icon: "/src/assets/images/competences/html.PNG",
     title: "HTML",
     niveau: "w-[95%]",
     color: "bg-red-500",
   },
   {
-    icon: "/public/images/competences/css.PNG",
+    icon: "/src/assets/images/competences/css.PNG",
     title: "CSS",
     niveau: "w-[80%]",
     color: "bg-blue-800",
   },
   {
-    icon: "/public/images/competences/js.PNG",
+    icon: "/src/assets/images/competences/js.PNG",
     title: "Javascript",
     niveau: "w-[69%]",
     color: "bg-yellow-500",
   },
   {
-    icon: "/public/images/competences/php.PNG",
+    icon: "/src/assets/images/competences/php.PNG",
     title: "PHP",
     niveau: "w-[85%]",
     color: "bg-blue-400",
   },
   {
-    icon: "/public/images/competences/sass.PNG",
+    icon: "/src/assets/images/competences/sass.PNG",
     title: "SASS",
     niveau: "w-[60%]",
     color: "bg-pink-400",
   },
   {
-    icon: "/public/images/competences/sql.PNG",
+    icon: "/src/assets/images/competences/sql.PNG",
     title: "sql",
     niveau: "w-[65%]",
     color: "bg-blue-800",
@@ -117,43 +117,43 @@ const langages = [
 ];
 const frameworks = [
   {
-    icon: "/public/images/competences/symfony.PNG",
+    icon: "/src/assets/images/competences/symfony.PNG",
     title: "Symfony",
     niveau: "w-[65%]",
     color: "bg-black",
   },
   {
-    icon: "/public/images/competences/laravel.PNG",
+    icon: "/src/assets/images/competences/laravel.PNG",
     title: "Laravel",
     niveau: "w-[80%]",
     color: "bg-red-600",
   },
   {
-    icon: "/public/images/competences/vuejs.PNG",
+    icon: "/src/assets/images/competences/vuejs.PNG",
     title: "VueJS",
     niveau: "w-[80%]",
     color: "bg-green-400",
   },
   {
-    icon: "/public/images/competences/tailwind.PNG",
+    icon: "/src/assets/images/competences/tailwind.PNG",
     title: "TailwindCSS",
     niveau: "w-[85%]",
     color: "bg-cyan-500",
   },
   {
-    icon: "/public/images/competences/pinia.PNG",
+    icon: "/src/assets/images/competences/pinia.PNG",
     title: "Pinia",
     niveau: "w-[65%]",
     color: "bg-yellow-200",
   },
   {
-    icon: "/public/images/competences/bootstrap.PNG",
+    icon: "/src/assets/images/competences/bootstrap.PNG",
     title: "Bootstrap",
     niveau: "w-[85%]",
     color: "bg-violet-800",
   },
   {
-    icon: "/public/images/competences/daisyui.PNG",
+    icon: "/src/assets/images/competences/daisyui.PNG",
     title: "DaisyUI",
     niveau: "w-[85%]",
     color: "bg-yellow-500",
@@ -161,13 +161,13 @@ const frameworks = [
 ];
 const bd = [
   {
-    icon: "/public/images/competences/mysql.PNG",
+    icon: "/src/assets/images/competences/mysql.PNG",
     title: "MySQL",
     niveau: "w-[85%]",
     color: "bg-orange-400",
   },
   {
-    icon: "/public/images/competences/postgresql.PNG",
+    icon: "/src/assets/images/competences/postgresql.PNG",
     title: "PostgreSQL",
     niveau: "w-[55%]",
     color: "bg-blue-900",
@@ -175,19 +175,19 @@ const bd = [
 ];
 const outils = [
   {
-    icon: "/public/images/competences/git.PNG",
+    icon: "/src/assets/images/competences/git.PNG",
     title: "GIT",
     niveau: "w-[85%]",
     color: "bg-green-100",
   },
   {
-    icon: "/public/images/competences/github.PNG",
+    icon: "/src/assets/images/competences/github.PNG",
     title: "GitHub",
     niveau: "w-[80%]",
     color: "bg-black",
   },
   {
-    icon: "/public/images/competences/vscode.PNG",
+    icon: "/src/assets/images/competences/vscode.PNG",
     title: "VSCode",
     niveau: "w-[95%]",
     color: "bg-blue-500",
@@ -195,7 +195,7 @@ const outils = [
 ];
 const design = [
   {
-    icon: "/public/images/competences/photoshop.PNG",
+    icon: "/src/assets/images/competences/photoshop.PNG",
     title: "Photoshop",
     niveau: "w-[50%]",
     color: "bg-blue-500",
@@ -203,13 +203,13 @@ const design = [
 ];
 const bureautique = [
   {
-    icon: "/public/images/competences/word.PNG",
+    icon: "/src/assets/images/competences/word.PNG",
     title: "Word",
     niveau: "w-[80%]",
     color: "bg-blue-500",
   },
   {
-    icon: "/public/images/competences/excel.PNG",
+    icon: "/src/assets/images/competences/excel.PNG",
     title: "Excel",
     niveau: "w-[60%]",
     color: "bg-green-500",
